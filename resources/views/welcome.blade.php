@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Finance</title>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'LTC Group Invoice') }}</title>
+
     <link rel="icon" href="{{asset("template/img/logo.png")}}" type="image/png">
 
     <link rel="stylesheet" href="{{asset("template/css/bootstrap1.min.css")}}" />
@@ -55,6 +60,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <form>
+                                        @csrf
                                         <div class="row social_login_btn">
                                             <div class="form-group col-md-12 text-center">
                                                 <a href="#" class="btn_1 full_width"><i class="fab fa-facebook-square"></i>Log in with Facebook</a>
@@ -73,7 +79,6 @@
                                             <input type="password" class="form-control" placeholder="Password">
                                         </div>
                                         <a href="#" class="btn_1 full_width text-center">Log in</a>
-                                        <p>Need an account? <a data-bs-toggle="modal" data-bs-target="#sing_up" data-bs-dismiss="modal" href="#"> Sign Up</a></p>
                                         <div class="text-center">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
                                         </div>
