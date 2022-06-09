@@ -68,16 +68,8 @@
                 <span>Service</span>
             </a>
             <ul>
-                <li><a href="#">Service 001</a>
-                    <ul>
-                        <li><a href="$">Transactions</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Service 002</a>
-                    <ul>
-                        <li><a href="$">Transactions</a></li>
-                    </ul>
-                </li>
+                <li><a href="#">Service 001</a></li>
+                <li><a href="#">Service 002</a></li>
             </ul>
         </li>
     </ul>

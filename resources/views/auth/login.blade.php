@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="add_button ms-2">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#addcategory" class="btn_1">New bill</a>
+                            <a href="#addBill" data-bs-toggle="modal" data-bs-target="#addBill" class="btn_1">New bill</a>
                         </div>
                     </div>
                 </div>
@@ -38,21 +38,23 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @for($i=0; $i<21; $i++)
-                                <tr>
-                                    <th scope="row"> <a href="#" class="question_content"> invoice00{{$i+1}}</a></th>
-                                    <td>Website</td>
-                                    <td>Teacher James</td>
-                                    <td>teacher.james@gmail.com</td>
-                                    <td>+237 675 89 21 36</td>
-                                    <td>$25.00</td>
-                                    <td><a href="#" class="status_btn">Active</a></td>
-                                </tr>
-                            @endfor
+                        @for($i=0; $i<71; $i++)
+                            <tr>
+                                <th scope="row"> <a href="#" class="question_content"> invoice00{{$i+1}}</a></th>
+                                <td>Website</td>
+                                <td>Teacher James</td>
+                                <td>teacher.james@gmail.com</td>
+                                <td>+237 675 89 21 36</td>
+                                <td>$25.00</td>
+                                <td><a href="#" class="status_btn">Active</a></td>
+                            </tr>
+                        @endfor
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
+    @include("components.billing_form")
 @endsection
