@@ -63,7 +63,7 @@ class TransactionNotification extends Notification
             ->line(new HtmlString("<br>"))
             ->line(new HtmlString("<strong>Transaction information</strong>"))
             ->line(new HtmlString("<strong>Invoice ID :</strong> $this->transaction_number"))
-            ->line(new HtmlString("<strong>Amount :</strong> $this->amount"))
+            ->line(new HtmlString("<strong>Amount :</strong> $this->amount XAF"))
             ->line(new HtmlString("<br>"))
             ->action("Learn More", "#");
     }
