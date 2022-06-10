@@ -12,7 +12,7 @@ class TransactionNotification extends Notification
     use Queueable;
 
     // customer data
-    private mixed $name, $email, $phone, $service, $transaction;
+    private mixed $name, $email, $phone, $transaction_number, $amount;
 
     /**
      * TransactionNotification constructor.
@@ -21,11 +21,11 @@ class TransactionNotification extends Notification
      */
     public function __construct($data)
     {
-        $this->name = $data->name;
-        $this->phone = $data->phone;
-        $this->email = $data->email;
-        $this->service = $data->service;
-        $this->transaction = $data->transaction;
+        $this->name = $data['name'];
+        $this->phone = $data['phone'];
+        $this->email = $data['email'];
+        $this->transaction_number = $data['transaction_number'];
+        $this->amount = $data['amount'];
     }
 
 
@@ -61,14 +61,10 @@ class TransactionNotification extends Notification
             ->line(new HtmlString("<strong>Email :</strong> $this->email"))
             ->line(new HtmlString("<strong>Phone number :</strong> $this->phone"))
             ->line(new HtmlString("<br>"))
-            ->line(new HtmlString("<strong>Service requested and Transaction information</strong>"))
-            ->line(new HtmlString("<strong>Name :</strong> $this->service->name"))
-            ->line(new HtmlString("<strong>Invoice ID :</strong> $this->transaction->number"))
-            ->line(new HtmlString("<strong>Amount :</strong> $this->transaction->amount"))
+            ->line(new HtmlString("<strong>Transaction information</strong>"))
+            ->line(new HtmlString("<strong>Invoice ID :</strong> $this->transaction_number"))
+            ->line(new HtmlString("<strong>Amount :</strong> $this->amount"))
             ->line(new HtmlString("<br>"))
-            ->line("Kind regards,")
-            ->line(new HtmlString("<br>"))
-            ->line(new HtmlString("<strong>LTC Group Sarl</strong>"))
             ->action("Learn More", "#");
     }
 

@@ -12,7 +12,7 @@ class CustomerNotification extends Notification
     use Queueable;
 
     // customer data
-    private mixed $billing_number, $service, $payment_link, $customer_name;
+    private mixed $billing_number, $payment_link, $customer_name;
 
     /**
      * CustomerNotification constructor.
@@ -22,7 +22,6 @@ class CustomerNotification extends Notification
     public function __construct($data)
     {
         $this->billing_number = $data['billing_number'];
-        $this->service = $data['service'];
         $this->payment_link = $data['route'];
         $this->customer_name = $data['customer_name'];
     }
@@ -49,14 +48,10 @@ class CustomerNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject("Invoice-[$this->billing_number] for $this->service")
+            ->subject("Invoice-[$this->billing_number]")
             ->greeting(new HtmlString("Hi $this->customer_name!"))
             ->line("We hope you’re well.")
-            ->line("Please see attached invoice number $this->billing_number for $this->service. Don’t hesitate to reach out if you have any questions.")
-            ->line(new HtmlString("<br>"))
-            ->line("Kind regards,")
-            ->line(new HtmlString("<br>"))
-            ->line(new HtmlString("<strong>LTC Group Sarl</strong>"))
+            ->line("Please see attached invoice number $this->billing_number. Don’t hesitate to reach out if you have any questions.")
             ->line(new HtmlString("<br>"))
             ->action("Regler la facture", $this->payment_link);
     }

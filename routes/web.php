@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('firebase',[FirebaseController::class, 'index']);
+Route::post('firebase/{uuid}',[FirebaseController::class, 'update'])->name('create-invoice');
 
 Auth::routes();
 
