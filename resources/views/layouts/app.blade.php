@@ -102,7 +102,10 @@
                                 <p>Welcome Admin!</p>
                                 <h5>Travor James</h5>
                                 <div class="profile_info_details">
-                                    <a href="#">Log Out <i class="ti-shift-left"></i></a>
+                                    <form action="{{url('logout')}}" method="post" id="formLogout">
+                                        @csrf
+                                        <a href="#" id="btnLogout">Log Out <i class="ti-shift-left"></i></a>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -174,6 +177,7 @@
 <script src="{{asset("template/vendors/apex_chart/apexcharts.js")}}"></script>
 
 <script src="{{asset("template/js/custom.js")}}"></script>
+<script src="{{asset("template/js/logout.js")}}"></script>
 
 
 <script src="{{asset("template/js/active_chart.js")}}"></script>

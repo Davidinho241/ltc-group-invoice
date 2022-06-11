@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FirebaseController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Route::get('firebase',[FirebaseController::class, 'index']);
 Route::post('firebase/{uuid}',[FirebaseController::class, 'update'])->name('create-invoice');

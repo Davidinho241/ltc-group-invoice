@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'firebaseUser',
         ],
     ],
 
@@ -62,6 +62,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+
+        'firebaseUser' => [
+            'driver' => 'firebaseuserprovider',
             'model' => App\Models\User::class,
         ],
 

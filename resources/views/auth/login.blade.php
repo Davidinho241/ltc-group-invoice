@@ -59,7 +59,7 @@
                                     <h5 class="modal-title">Log in</h5>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form action="{{url('login')}}" method="post">
                                         @csrf
                                         <div class="row social_login_btn">
                                             <div class="form-group col-md-12 text-center">
@@ -73,12 +73,12 @@
                                             <span>Or</span>
                                         </div>
                                         <div class="">
-                                            <input type="text" class="form-control" placeholder="Enter your email">
+                                            <input type="text" class="form-control" placeholder="Enter your email" name="email">
                                         </div>
                                         <div class="">
-                                            <input type="password" class="form-control" placeholder="Password">
+                                            <input type="password" class="form-control" placeholder="Password" name="password">
                                         </div>
-                                        <a href="#" class="btn_1 full_width text-center">Log in</a>
+                                        <button type="submit" class="btn_1 full_width text-center">Log in</button>
                                         <div class="text-center">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
                                         </div>
